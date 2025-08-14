@@ -1,7 +1,10 @@
 <?php
-require_once '../../controller/authMiddleware.php';
+include '../include/include.php';
+?>
+<div>
+    Hello world
+</div>
 
-include '../layout/topbar.php';
-include '../layout/sidebar.php';
-
+<?php
+include '../layout/footer.php';
 ?>

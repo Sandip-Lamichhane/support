@@ -1,4 +1,5 @@
 <head>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
@@ -42,6 +43,11 @@
                 <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 space-x-2">
                     <i class="fa-solid fa-user"></i>
                     <span>Profile</span>
+                </a>
+
+                <a href="#" class="flex items-center px-4 py-2 hover:bg-gray-100 space-x-2">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Change Password</span>
                 </a>
 
                 <a href="../../controller/logout.php" class="flex items-center px-4 py-2 hover:bg-gray-100 space-x-2">

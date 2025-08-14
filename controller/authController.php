@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 exit();
             }
         } else {
-            $_SESSION['error'] = "User not found!";
+            $_SESSION['error'] = "Invalid username or Password!";
             header("location: ../views/auth/login.php");
             exit();
         }
