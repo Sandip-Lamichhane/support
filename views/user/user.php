@@ -1,10 +1,18 @@
-<?php
-include '../include/include.php';
-?>
+<?php include '../include/include.php'; ?>
 
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
+<div class="container mx-auto mt-4">
+  <?php if (isset($_SESSION['success'])): ?>
+    <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+      <strong class="font-bold">Success!</strong>
+      <span class="block sm:inline"><?php echo $_SESSION['success']; ?></span>
+      <?php unset($_SESSION['success']); ?>
+    </div>
+  <?php endif; ?>
+</div>
 
 <!-- Title and Create Button -->
 <div class="flex items-center justify-between mb-6">
@@ -13,7 +21,7 @@ include '../include/include.php';
     <p class="text-gray-500 text-sm">Manage system users, roles, and permissions</p>
   </div>
   <button class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700">
-    + Create User
+    <a href="createUser.php">+ Create User</a>
   </button>
 </div>
 
@@ -94,7 +102,7 @@ include '../include/include.php';
 <div class="hidden absolute z-50 w-56 bg-white rounded-md shadow-lg py-1" id="dropdown-menu">
   <div class="px-4 py-2 text-xs font-medium text-black border-b">ACTIONS</div>
   <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-100"><i class="fa-solid fa-user mr-2"></i>Profile</a>
-  <a href="passReset.php" class="block px-4 py-2 text-sm text-black hover:bg-gray-100"><i class="fa-solid fa-key mr-2"></i>Reset Password</a>
+  <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-100"><i class="fa-solid fa-key mr-2"></i>Reset Password</a>
   <!-- <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-100"><i class="fa-solid fa-user-slash mr-2"></i>Deactivate User</a> -->
 </div>
 

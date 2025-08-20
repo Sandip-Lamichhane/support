@@ -45,7 +45,7 @@
                     <span>Profile</span>
                 </a>
 
-                <a href="../user/passReset.php" class="flex items-center px-4 py-2 hover:bg-gray-100 space-x-2">
+                <a href="../user/passChange.php" class="flex items-center px-4 py-2 hover:bg-gray-100 space-x-2">
                     <i class="fa-solid fa-gear"></i>
                     <span>Change Password</span>
                 </a>
