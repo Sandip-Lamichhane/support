@@ -30,10 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $role = $_POST['role'];
     $status = $_POST['status'];
 
-    //check condition for username and email from db 
-    //if match throw error username or email alread taken
-    //else store the data in table 
-
     $hashed_Password = password_hash($password, PASSWORD_BCRYPT);
 
     $stmt = $conn->prepare("INSERT INTO user (username, email, password, role, status) values(?,?,?,?,?)");

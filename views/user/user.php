@@ -1,4 +1,6 @@
-<?php include '../include/include.php'; ?>
+<?php include '../include/include.php';
+require('../../config/db.php');
+?>
 
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -12,6 +14,11 @@
       <?php unset($_SESSION['success']); ?>
     </div>
   <?php endif; ?>
+  <?php
+  $sql = "SELECT * FROM user";
+  $result = $conn->execute_query($sql);
+  ?>
+
 </div>
 
 <!-- Title and Create Button -->
@@ -76,25 +83,35 @@
   </div>
 
   <!-- User Rows -->
-  <div class="divide-y border-x border-b rounded-b-lg">
-    <!-- John Doe -->
-    <div class="grid grid-cols-12 gap-4 p-4 hover:bg-gray-50 items-center">
-      <div class="col-span-5">
-        <div class="font-semibold">Admin</div>
-      </div>
-      <div class="col-span-3">
-        <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Super Admin</span>
-      </div>
-      <div class="col-span-3">
-        <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Active</span>
-      </div>
-      <div class="col-span-1 flex justify-end">
-        <button class="text-gray-400 hover:text-gray-600 focus:outline-none dots-btn">
-          <i class="fas fa-ellipsis-v"></i>
-        </button>
+  <?php
+  while (($row = $result->fetch_assoc()) != null) {
+  ?>
+    <div class="divide-y border-x border-b rounded-b-lg">
+      <!-- John Doe -->
+      <div class="grid grid-cols-12 gap-4 p-4 hover:bg-gray-50 items-center">
+        <div class="col-span-5">
+          <div class="font-semibold">
+            <?php echo $row['username']; ?>
+          </div>
+        </div>
+        <div class="col-span-3">
+          <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">
+            <?php echo $row['role']; ?>
+          </span>
+        </div>
+        <div class="col-span-3">
+          <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">
+            <?php echo $row['status']; ?>
+          </span>
+        </div>
+        <div class="col-span-1 flex justify-end">
+          <button class="text-gray-400 hover:text-gray-600 focus:outline-none dots-btn">
+            <i class="fas fa-ellipsis-v"></i>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  <?php } ?>
 </div>
 
 <!-- Dropdown Menu Template -->
@@ -103,6 +120,7 @@
   <div class="px-4 py-2 text-xs font-medium text-black border-b">ACTIONS</div>
   <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-100"><i class="fa-solid fa-user mr-2"></i>Profile</a>
   <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-100"><i class="fa-solid fa-key mr-2"></i>Reset Password</a>
+  <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-100"><i class="fa-solid fa-user-slash mr-2"></i> Deactivate User</a>
   <!-- <a href="#" class="block px-4 py-2 text-sm text-black hover:bg-gray-100"><i class="fa-solid fa-user-slash mr-2"></i>Deactivate User</a> -->
 </div>
 
